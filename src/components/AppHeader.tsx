@@ -1,10 +1,11 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 import { DateRangeList } from './DateRangeList'
 import { Button } from '../styles'
 
 const Header = styled.header`
-  ${tw`px-2 py-2`}
+  ${tw`px-2 py-2 fixed w-full bg-white shadow`}
 `
 const NavbarDiv = styled.div`
   ${tw`flex inline-flex`}
@@ -24,6 +25,7 @@ type Props = {
 }
 
 export const AppHeader = ({ dateRanges }: Props) => {
+  const [selectedRadio, setSelectedRadio] = useState(0)
 
   return (
     <Header>
@@ -44,6 +46,8 @@ export const AppHeader = ({ dateRanges }: Props) => {
         </div>
       </NavbarDiv>
       <DateRangeList dateRanges={dateRanges} />
+      <Button radioLeft hover={selectedRadio === 0} onClick={() => setSelectedRadio(0)}>Lunch</Button>
+      <Button radioRight hover={selectedRadio === 1} onClick={() => setSelectedRadio(1)}>Dinner</Button>
     </Header>
   )
 }
