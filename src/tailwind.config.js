@@ -7,5 +7,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // @ts-ignore
+    require('@tailwindcss/typography')
+  ],
 }
