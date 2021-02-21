@@ -5,7 +5,7 @@ import { DateRangeList } from './DateRangeList'
 import { Button } from '../styles'
 
 const Header = styled.header`
-  ${tw`px-2 py-2 fixed w-full bg-white shadow`}
+  ${tw`px-2 py-2 fixed w-full bg-white shadow text-gray-600`}
 `
 const NavbarDiv = styled.div`
   ${tw`flex inline-flex`}
@@ -18,6 +18,9 @@ const H1 = styled.h1`
   svg {
     display: inline
   }
+`
+const Div = styled.div`
+${tw`px-2`}
 `
 
 type Props = {
@@ -45,9 +48,12 @@ export const AppHeader = ({ dateRanges }: Props) => {
           </H1>
         </div>
       </NavbarDiv>
+
       <DateRangeList dateRanges={dateRanges} />
-      <Button radioLeft hover={selectedRadio === 0} onClick={() => setSelectedRadio(0)}>Lunch</Button>
-      <Button radioRight hover={selectedRadio === 1} onClick={() => setSelectedRadio(1)}>Dinner</Button>
+      <Div>
+        <Button radioLeft hover={selectedRadio === 0} onClick={() => setSelectedRadio(0)}>Lunch</Button>
+        <Button radioRight hover={selectedRadio === 1} onClick={() => setSelectedRadio(1)}>Dinner</Button>
+      </Div>
     </Header>
   )
 }

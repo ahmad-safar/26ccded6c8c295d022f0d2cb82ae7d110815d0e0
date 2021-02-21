@@ -14,7 +14,7 @@ export const DateRangeList = ({ dateRanges }: Props) => {
   return (
     <Div>
       {dateRanges.map((dateRange, index) => (
-        <DateRangeListItem key={dateRange.DD} dateRange={dateRange} index={index} />
+        <DateRangeListItem key={index} dateRange={dateRange} index={index} />
       ))}
     </Div>
   )
