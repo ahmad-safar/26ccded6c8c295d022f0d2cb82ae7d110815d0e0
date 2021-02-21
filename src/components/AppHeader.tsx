@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Transition } from '@headlessui/react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 import { DateRangeList } from './DateRangeList'
 import { Button } from '../styles'
+import { useScroll } from '../useScroll'
 
 const Header = styled.header`
-  ${tw`px-2 py-2 fixed w-full bg-white shadow text-gray-600`}
+  ${tw`pt-2 fixed w-full bg-white shadow text-gray-600`}
 `
 const NavbarDiv = styled.div`
-  ${tw`flex inline-flex`}
+  ${tw`px-1 flex inline-flex`}
 `
 const Span = styled.span`
   ${tw`text-xs`}
@@ -20,7 +22,7 @@ const H1 = styled.h1`
   }
 `
 const Div = styled.div`
-${tw`px-2`}
+${tw`py-2 px-4 border-t border-gray-200`}
 `
 
 type Props = {
@@ -29,6 +31,12 @@ type Props = {
 
 export const AppHeader = ({ dateRanges }: Props) => {
   const [selectedRadio, setSelectedRadio] = useState(0)
+  const [isOpen, setIsOpen] = useState(true)
+  const { scrollDirection } = useScroll()
+
+  useEffect(() => {
+    setIsOpen(scrollDirection === 'up' ? false : true)
+  }, [scrollDirection])
 
   return (
     <Header>
@@ -50,10 +58,24 @@ export const AppHeader = ({ dateRanges }: Props) => {
       </NavbarDiv>
 
       <DateRangeList dateRanges={dateRanges} />
-      <Div>
-        <Button radioLeft hover={selectedRadio === 0} onClick={() => setSelectedRadio(0)}>Lunch</Button>
-        <Button radioRight hover={selectedRadio === 1} onClick={() => setSelectedRadio(1)}>Dinner</Button>
-      </Div>
+      <Transition
+        show={isOpen}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0">
+        <Div>
+          <Button radioLeft hover={selectedRadio === 0}
+            onClick={() => {
+              setSelectedRadio(0)
+              setIsOpen(false)
+            }}>Lunch</Button>
+          <Button radioRight hover={selectedRadio === 1}>Dinner</Button>
+        </Div>
+      </Transition>
+
     </Header>
   )
 }
