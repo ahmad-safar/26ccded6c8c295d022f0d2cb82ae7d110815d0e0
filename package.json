@@ -1,6 +1,7 @@
 {
   "name": "26ccded6c8c295d022f0d2cb82ae7d110815d0e0",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^0.3.1",
