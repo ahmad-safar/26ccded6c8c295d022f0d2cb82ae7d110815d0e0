@@ -96,11 +96,11 @@ export const AppHeader = ({ dateRanges }: Props) => {
   const [isOpen, setIsOpen] = useState(true)
   const [isModalShow, setIsModalShow] = useState(false)
   const [isLocationShow, setIsLocationShow] = useState(false)
-  const { scrollDirection } = useScroll()
+  const { scrollDirection, scrollY } = useScroll()
 
   useEffect(() => {
-    setIsOpen(scrollDirection === 'up' ? false : true)
-  }, [scrollDirection])
+    setIsOpen(scrollDirection === 'up' && scrollY > 40 ? false : true)
+  }, [scrollDirection, scrollY])
 
   return (
     <Header>
