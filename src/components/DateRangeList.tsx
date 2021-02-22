@@ -7,7 +7,7 @@ type Props = {
 }
 
 const Div = styled.div.attrs({ className: 'prose lg:prose-xl' })`
-  ${tw`block w-full mt-4 mb-2 pb-2 overflow-x-scroll grid grid-flow-col auto-cols-max gap-1 border-b border-gray-200`}
+  ${tw`block w-full mt-4 px-2 pb-2 overflow-x-scroll grid grid-flow-col auto-cols-max gap-1`}
 `
 
 export const DateRangeList = ({ dateRanges }: Props) => {

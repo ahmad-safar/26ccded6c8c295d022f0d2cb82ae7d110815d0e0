@@ -22,7 +22,7 @@ export const Button = styled.button<BProps>`
   ${props => props.roundedFull && tw`rounded-full`}
   ${props => props.hover && tw`text-white bg-gray-700 border-gray-700`}
   ${props => props.dtRange && tw`w-11 h-11`}
-  ${props => props.back && tw`p-2 mr-2`}
+  ${props => props.back && tw`p-2`}
   ${props => props.back && `
     path {
       --tw-text-opacity: 1;

@@ -8,4 +8,9 @@ type List = {
     img: string
 }
 
+type Cart = {
+    price: number
+}
+
 type setClicked = (clicked: boolean) => void
+type AddCart = (price: number) => void

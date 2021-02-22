@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 import { Button } from '../styles'
@@ -37,9 +36,10 @@ const AddIcon = styled.div`
 
 type Props = {
   list: List
+  addCart: AddCart
 }
 
-export const CardListItem = ({ list }: Props) => {
+export const CardListItem = ({ list, addCart }: Props) => {
   return (
     <Card>
       <div>
@@ -58,9 +58,9 @@ export const CardListItem = ({ list }: Props) => {
         </p>
         <Flex>
           <h3>
-            Rp 35.000
+            Rp 35,000
           </h3>
-          <Button cardAdd>
+          <Button cardAdd onClick={() => addCart(35000)}>
             <div>ADD</div>
             <AddIcon>
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="20">
