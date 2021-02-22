@@ -9,6 +9,8 @@ module.exports = {
   },
   plugins: [
     // @ts-ignore
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    // @ts-ignore
+    require('@tailwindcss/forms')
   ],
 }
