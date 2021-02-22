@@ -7,7 +7,7 @@ const Img = styled.img`
   object-fit: cover;
 `
 const Card = styled.div`
-  ${tw`bg-white shadow overflow-hidden rounded-md sm:rounded-lg`}
+  ${tw`bg-white shadow-lg overflow-hidden rounded-md sm:rounded-lg`}
 `
 const CardDesc = styled.div`
   ${tw`p-4 sm:px-6 border-t border-gray-200`}

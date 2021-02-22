@@ -42,9 +42,9 @@ const dateRanges = (): DateRange[] => {
 const tomorrow = moment().add(1, 'days').format('dddd, DD MMMM YYYY')
 
 const AppMain = styled.main`
-  ${tw`pt-52 pb-24 px-4 text-gray-600`}
+  ${tw`pt-56 pb-24 px-4 text-gray-600`}
   h2 {
-    ${tw`font-bold mb-3`}
+    ${tw`text-lg leading-6 font-medium mb-4`}
   }
 `
 
